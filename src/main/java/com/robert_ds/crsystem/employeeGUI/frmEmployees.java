@@ -22,13 +22,14 @@ public class frmEmployees extends javax.swing.JFrame {
      */
     public frmEmployees() {
         initComponents();
-        
+              
         String[] titles = {"Id", "Name", "Mail"};
         
         model = new DefaultTableModel(null, titles);
         tblEmployees.setModel(model);
         
-        showData();
+        this.showData();
+        this.cleanInputs();
         
     }
 
@@ -57,10 +58,14 @@ public class frmEmployees extends javax.swing.JFrame {
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu1 = new javax.swing.JMenu();
     jMenuItem1 = new javax.swing.JMenuItem();
-    jMenu2 = new javax.swing.JMenu();
-    jMenuItem2 = new javax.swing.JMenuItem();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Employee System");
+    setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    setFocusable(false);
+    setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
+    setIconImages(getIconImages());
+    setResizable(false);
 
     tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
@@ -101,11 +106,22 @@ public class frmEmployees extends javax.swing.JFrame {
     editBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
     editBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/edit-alt-solid-24.png")); // NOI18N
     editBtn.setText("Edit");
+    editBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editBtnActionPerformed(evt);
+      }
+    });
 
     cancelBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
     cancelBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/checkbox-solid-24.png")); // NOI18N
     cancelBtn.setText("Cancel");
+    cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cancelBtnActionPerformed(evt);
+      }
+    });
 
+    txtID.setEditable(false);
     txtID.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
 
     txtName.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -139,15 +155,6 @@ public class frmEmployees extends javax.swing.JFrame {
     jMenu1.add(jMenuItem1);
 
     jMenuBar1.add(jMenu1);
-
-    jMenu2.setText("Edit");
-    jMenu2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-
-    jMenuItem2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-    jMenuItem2.setText("edit");
-    jMenu2.add(jMenuItem2);
-
-    jMenuBar1.add(jMenu2);
 
     setJMenuBar(jMenuBar1);
 
@@ -255,6 +262,9 @@ public class frmEmployees extends javax.swing.JFrame {
           System.out.println("Exception: " +  e);
       }
         
+      this.showData();
+      this.cleanInputs();
+        
     }//GEN-LAST:event_addBtnActionPerformed
 
     /**
@@ -270,6 +280,11 @@ public class frmEmployees extends javax.swing.JFrame {
       txtName.setText(recept.getModel().getValueAt(recept.getSelectedRow(),1).toString());
       txtMail.setText(recept.getModel().getValueAt(recept.getSelectedRow(),2).toString());
     }
+    
+    addBtn.setEnabled(false);
+    delBtn.setEnabled(true);
+    editBtn.setEnabled(true);
+    
   }//GEN-LAST:event_tblEmployeesMouseClicked
 
   /**
@@ -286,7 +301,34 @@ public class frmEmployees extends javax.swing.JFrame {
         
         objConnect.sqlInsertion(strSqlInsert);
         this.showData();
+        this.cleanInputs();
   }//GEN-LAST:event_delBtnActionPerformed
+
+  /**
+   * Method edit information
+   * @param evt 
+   */
+  private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+    // TODO add your handling code here:
+    Connect objConnect = new Connect();
+    employeesBL objEmployees = catchGuiData();
+        
+        String strSqlInsert = String.format("UPDATE Employees SET name = '%s', mail = '%s' WHERE Id = %d ", objEmployees.getName(), objEmployees.getMail(), objEmployees.getID());
+
+        
+        objConnect.sqlInsertion(strSqlInsert);
+        this.showData();
+        this.cleanInputs();
+  }//GEN-LAST:event_editBtnActionPerformed
+
+  /**
+   * Method cancel add or edit user
+   * @param evt 
+   */
+  private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+    // TODO add your handling code here:
+    this.cleanInputs();
+  }//GEN-LAST:event_cancelBtnActionPerformed
 
     /**
      * Method that show data to database on table
@@ -335,6 +377,16 @@ public class frmEmployees extends javax.swing.JFrame {
       return objEmployees;
     }
     
+    public void cleanInputs() {
+      txtID.setText("");
+      txtName.setText("");
+      txtMail.setText("");
+      
+      addBtn.setEnabled(true);
+      delBtn.setEnabled(false);
+      editBtn.setEnabled(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -380,10 +432,8 @@ public class frmEmployees extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
   private javax.swing.JMenu jMenu1;
-  private javax.swing.JMenu jMenu2;
   private javax.swing.JMenuBar jMenuBar1;
   private javax.swing.JMenuItem jMenuItem1;
-  private javax.swing.JMenuItem jMenuItem2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable tblEmployees;
   private javax.swing.JTextField txtID;
