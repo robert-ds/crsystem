@@ -181,7 +181,7 @@
           <Font name="Ubuntu Mono" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/user-plus-solid-24.png"/>
+          <Image iconType="3" name="/imgs/user-plus-solid-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
@@ -195,7 +195,7 @@
           <Font name="Ubuntu Mono" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/user-minus-regular-24.png"/>
+          <Image iconType="3" name="/imgs/user-minus-regular-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Del"/>
       </Properties>
@@ -209,7 +209,7 @@
           <Font name="Ubuntu Mono" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/edit-alt-solid-24.png"/>
+          <Image iconType="3" name="/imgs/edit-alt-solid-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
@@ -223,7 +223,7 @@
           <Font name="Ubuntu Mono" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/checkbox-solid-24.png"/>
+          <Image iconType="3" name="/imgs/checkbox-solid-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
@@ -259,7 +259,7 @@
           <Font name="Ubuntu" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/child-regular-24.png"/>
+          <Image iconType="3" name="/imgs/child-regular-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Employee System"/>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>

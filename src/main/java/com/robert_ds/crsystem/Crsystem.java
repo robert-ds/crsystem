@@ -4,6 +4,8 @@
 
 package com.robert_ds.crsystem;
 
+import com.robert_ds.crsystem.employeeGUI.frmEmployees;
+
 /**
  *
  * @author robert
@@ -11,6 +13,7 @@ package com.robert_ds.crsystem;
 public class Crsystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       frmEmployees frmEm = new frmEmployees();
+       frmEm.setVisible(true);
     }
 }

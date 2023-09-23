@@ -86,7 +86,7 @@ public class frmEmployees extends javax.swing.JFrame {
     jScrollPane1.setViewportView(tblEmployees);
 
     addBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    addBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/user-plus-solid-24.png")); // NOI18N
+    addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-plus-solid-24.png"))); // NOI18N
     addBtn.setText("Add");
     addBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,7 @@ public class frmEmployees extends javax.swing.JFrame {
     });
 
     delBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    delBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/user-minus-regular-24.png")); // NOI18N
+    delBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-minus-regular-24.png"))); // NOI18N
     delBtn.setText("Del");
     delBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +104,7 @@ public class frmEmployees extends javax.swing.JFrame {
     });
 
     editBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    editBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/edit-alt-solid-24.png")); // NOI18N
+    editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/edit-alt-solid-24.png"))); // NOI18N
     editBtn.setText("Edit");
     editBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +113,7 @@ public class frmEmployees extends javax.swing.JFrame {
     });
 
     cancelBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    cancelBtn.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/checkbox-solid-24.png")); // NOI18N
+    cancelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/checkbox-solid-24.png"))); // NOI18N
     cancelBtn.setText("Cancel");
     cancelBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class frmEmployees extends javax.swing.JFrame {
     txtMail.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
 
     jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-    jLabel1.setIcon(new javax.swing.ImageIcon("/home/robert/Files/Projects/All Projects Code/Java/crsystem/src/main/resources/imgs/child-regular-24.png")); // NOI18N
+    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/child-regular-24.png"))); // NOI18N
     jLabel1.setText("Employee System");
     jLabel1.setName(""); // NOI18N
 
@@ -253,9 +253,9 @@ public class frmEmployees extends javax.swing.JFrame {
         ResultSet result = objConnect.queryRegistres("SELECT * FROM Employees");
         
         while(result.next()) {
-          System.out.println(result.getString("id"));
-          System.out.println(result.getString("name"));
-          System.out.println(result.getString("mail"));
+//          System.out.println(result.getString("id"));
+//          System.out.println(result.getString("name"));
+//          System.out.println(result.getString("mail"));
         }
         
       } catch (Exception e) {
@@ -346,9 +346,9 @@ public class frmEmployees extends javax.swing.JFrame {
         ResultSet result = objConnect.queryRegistres("SELECT * FROM Employees");
         
         while(result.next()) {
-          System.out.println(result.getString("id"));
-          System.out.println(result.getString("name"));
-          System.out.println(result.getString("mail"));
+//          System.out.println(result.getString("id"));
+//          System.out.println(result.getString("name"));
+//          System.out.println(result.getString("mail"));
           
           Object[] objUser = {result.getString("id"),result.getString("name"),result.getString("mail")};
           

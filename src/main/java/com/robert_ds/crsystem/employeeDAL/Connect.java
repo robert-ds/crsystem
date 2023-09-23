@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author robert
  */
 public class Connect {
-    String strConnect = "jdbc:sqlite:/home/robert/Files/Projects/All Projects Code/Java/crsystem/db/crsystem";
+    String strConnect = "jdbc:sqlite:./db/crsystem";
     Connection conn = null;
     
     public Connect() {
@@ -47,7 +47,7 @@ public class Connect {
     }
     
     /**
-     * Method that query registres in database
+     * Method that query records in database
      * @param strSQL
      * @return response
      */
