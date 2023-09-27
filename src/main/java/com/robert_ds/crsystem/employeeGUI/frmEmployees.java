@@ -15,6 +15,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmEmployees extends javax.swing.JFrame {
   
+  int xMouse;
+  int yMouse;
+  
     DefaultTableModel model;
 
     /**
@@ -42,12 +45,9 @@ public class frmEmployees extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jPanel1 = new javax.swing.JPanel();
     jScrollPane1 = new javax.swing.JScrollPane();
     tblEmployees = new javax.swing.JTable();
-    addBtn = new javax.swing.JButton();
-    delBtn = new javax.swing.JButton();
-    editBtn = new javax.swing.JButton();
-    cancelBtn = new javax.swing.JButton();
     txtID = new javax.swing.JTextField();
     txtName = new javax.swing.JTextField();
     txtMail = new javax.swing.JTextField();
@@ -55,9 +55,16 @@ public class frmEmployees extends javax.swing.JFrame {
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
-    jMenuBar1 = new javax.swing.JMenuBar();
-    jMenu1 = new javax.swing.JMenu();
-    jMenuItem1 = new javax.swing.JMenuItem();
+    HeaderPanel = new javax.swing.JPanel();
+    closeButton = new javax.swing.JLabel();
+    jPanel2 = new javax.swing.JPanel();
+    addBtn = new javax.swing.JLabel();
+    jPanel3 = new javax.swing.JPanel();
+    delBtn = new javax.swing.JLabel();
+    jPanel4 = new javax.swing.JPanel();
+    editBtn = new javax.swing.JLabel();
+    jPanel5 = new javax.swing.JPanel();
+    cancelBtn = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("Employee System");
@@ -65,8 +72,13 @@ public class frmEmployees extends javax.swing.JFrame {
     setFocusable(false);
     setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
     setIconImages(getIconImages());
+    setUndecorated(true);
     setResizable(false);
 
+    jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+    tblEmployees.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
     tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
         {null, null, null, null},
@@ -85,187 +97,193 @@ public class frmEmployees extends javax.swing.JFrame {
     });
     jScrollPane1.setViewportView(tblEmployees);
 
-    addBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-plus-solid-24.png"))); // NOI18N
-    addBtn.setText("Add");
-    addBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        addBtnActionPerformed(evt);
-      }
-    });
-
-    delBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    delBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-minus-regular-24.png"))); // NOI18N
-    delBtn.setText("Del");
-    delBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        delBtnActionPerformed(evt);
-      }
-    });
-
-    editBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/edit-alt-solid-24.png"))); // NOI18N
-    editBtn.setText("Edit");
-    editBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        editBtnActionPerformed(evt);
-      }
-    });
-
-    cancelBtn.setFont(new java.awt.Font("Ubuntu Mono", 1, 14)); // NOI18N
-    cancelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/checkbox-solid-24.png"))); // NOI18N
-    cancelBtn.setText("Cancel");
-    cancelBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        cancelBtnActionPerformed(evt);
-      }
-    });
+    jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 508, 200));
 
     txtID.setEditable(false);
     txtID.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+    jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 72, 34, 30));
 
     txtName.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+    txtName.setBorder(null);
+    txtName.setPreferredSize(new java.awt.Dimension(64, 15));
+    jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 301, 30));
 
     txtMail.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+    txtMail.setBorder(null);
+    txtMail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+    txtMail.setMinimumSize(new java.awt.Dimension(64, 15));
+    jPanel1.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 301, 30));
 
-    jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+    jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/child-regular-24.png"))); // NOI18N
     jLabel1.setText("Employee System");
     jLabel1.setName(""); // NOI18N
+    jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 520, -1));
 
     jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
     jLabel2.setText("ID:");
+    jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
     jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
     jLabel3.setText("Name:");
+    jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
     jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
     jLabel4.setText("Mail:");
+    jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
-    jMenu1.setText("File");
-    jMenu1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-
-    jMenuItem1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-    jMenuItem1.setText("exit");
-    jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jMenuItem1ActionPerformed(evt);
+    HeaderPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    HeaderPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+      public void mouseDragged(java.awt.event.MouseEvent evt) {
+        HeaderPanelMouseDragged(evt);
       }
     });
-    jMenu1.add(jMenuItem1);
+    HeaderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        HeaderPanelMousePressed(evt);
+      }
+    });
 
-    jMenuBar1.add(jMenu1);
+    closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/x-square-solid-24.png"))); // NOI18N
+    closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        closeButtonMouseClicked(evt);
+      }
+    });
 
-    setJMenuBar(jMenuBar1);
+    javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
+    HeaderPanel.setLayout(HeaderPanelLayout);
+    HeaderPanelLayout.setHorizontalGroup(
+      HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
+        .addGap(0, 499, Short.MAX_VALUE)
+        .addComponent(closeButton))
+    );
+    HeaderPanelLayout.setVerticalGroup(
+      HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(closeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+
+    jPanel1.add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+    jPanel2.setBackground(new java.awt.Color(255, 255, 204));
+
+    addBtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+    addBtn.setForeground(new java.awt.Color(255, 153, 0));
+    addBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-plus-solid-24.png"))); // NOI18N
+    addBtn.setText("Add");
+    addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        addBtnMouseClicked(evt);
+      }
+    });
+
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+    );
+    jPanel2Layout.setVerticalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+    );
+
+    jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+    jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+
+    delBtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+    delBtn.setForeground(new java.awt.Color(255, 153, 0));
+    delBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    delBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user-minus-regular-24.png"))); // NOI18N
+    delBtn.setText("Del");
+    delBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        delBtnMouseClicked(evt);
+      }
+    });
+
+    javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+    jPanel3.setLayout(jPanel3Layout);
+    jPanel3Layout.setHorizontalGroup(
+      jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(delBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+    );
+    jPanel3Layout.setVerticalGroup(
+      jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(delBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+    );
+
+    jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+
+    jPanel4.setBackground(new java.awt.Color(255, 255, 204));
+
+    editBtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+    editBtn.setForeground(new java.awt.Color(255, 153, 0));
+    editBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/edit-alt-solid-24.png"))); // NOI18N
+    editBtn.setText("Edit");
+    editBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        editBtnMouseClicked(evt);
+      }
+    });
+
+    javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+    jPanel4.setLayout(jPanel4Layout);
+    jPanel4Layout.setHorizontalGroup(
+      jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(editBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+    );
+    jPanel4Layout.setVerticalGroup(
+      jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(editBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+    );
+
+    jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
+
+    jPanel5.setBackground(new java.awt.Color(255, 255, 204));
+
+    cancelBtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+    cancelBtn.setForeground(new java.awt.Color(255, 153, 0));
+    cancelBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    cancelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/checkbox-solid-24.png"))); // NOI18N
+    cancelBtn.setText("Cancel");
+    cancelBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        cancelBtnMouseClicked(evt);
+      }
+    });
+
+    javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+    jPanel5.setLayout(jPanel5Layout);
+    jPanel5Layout.setHorizontalGroup(
+      jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(cancelBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+    );
+    jPanel5Layout.setVerticalGroup(
+      jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+    );
+
+    jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-          .addGroup(layout.createSequentialGroup()
-            .addGap(16, 16, 16)
-            .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(54, 54, 54)))
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createSequentialGroup()
-            .addComponent(delBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(44, 44, 44)
-            .addComponent(editBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(53, 53, 53)
-            .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(14, 14, 14))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-              .addComponent(txtName)
-              .addComponent(txtMail, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-              .addComponent(txtID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(70, 70, 70))))
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addGap(0, 0, Short.MAX_VALUE)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addComponent(jLabel1)
-            .addGap(183, 183, 183))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap())))
+      .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jLabel1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jLabel2))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jLabel3))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jLabel4))
-        .addGap(18, 18, 18)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-            .addComponent(addBtn)
-            .addComponent(editBtn)
-            .addComponent(cancelBtn))
-          .addComponent(delBtn))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(20, 20, 20))
+      .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    /**
-     * Method that click in button add save data on database
-     * @param evt 
-     */
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
-        Connect objConnect = new Connect();
-        employeesBL objEmployees = catchGuiData();
-        
-        String strSqlInsert = String.format("INSERT INTO Employees(name,mail)" + " VALUES ('%s','%s')", objEmployees.getName(), objEmployees.getMail());
-
-        
-        objConnect.sqlInsertion(strSqlInsert);
-        
-        try {
-        ResultSet result = objConnect.queryRegistres("SELECT * FROM Employees");
-        
-        while(result.next()) {
-//          System.out.println(result.getString("id"));
-//          System.out.println(result.getString("name"));
-//          System.out.println(result.getString("mail"));
-        }
-        
-      } catch (Exception e) {
-          System.out.println("Exception: " +  e);
-      }
-        
-      this.showData();
-      this.cleanInputs();
-        
-    }//GEN-LAST:event_addBtnActionPerformed
 
     /**
      * Method that click on one element of table show data on inputs
@@ -288,48 +306,93 @@ public class frmEmployees extends javax.swing.JFrame {
   }//GEN-LAST:event_tblEmployeesMouseClicked
 
   /**
+   * Method that close app
+   * @param evt 
+   */
+  private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
+    System.exit(0);
+  }//GEN-LAST:event_closeButtonMouseClicked
+
+  /**
+   * Method get position pressed header panel
+   * @param evt 
+   */
+  private void HeaderPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderPanelMousePressed
+    xMouse = evt.getX();
+    yMouse = evt.getY();
+  }//GEN-LAST:event_HeaderPanelMousePressed
+
+  private void HeaderPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderPanelMouseDragged
+    int x = evt.getXOnScreen();
+    int y = evt.getYOnScreen();
+    this.setLocation(x - xMouse, y - yMouse);
+  }//GEN-LAST:event_HeaderPanelMouseDragged
+
+  /**
+     * Method that click in button add save data on database
+     * @param evt 
+     */
+  private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+    Connect objConnect = new Connect();
+    employeesBL objEmployees = catchGuiData();
+
+    String strSqlInsert = String.format("INSERT INTO Employees(name,mail)" + " VALUES ('%s','%s')", objEmployees.getName(), objEmployees.getMail());
+
+    objConnect.sqlInsertion(strSqlInsert);
+
+    try {
+      ResultSet result = objConnect.queryRegistres("SELECT * FROM Employees");
+
+      while(result.next()) {
+        //          System.out.println(result.getString("id"));
+        //          System.out.println(result.getString("name"));
+        //          System.out.println(result.getString("mail"));
+      }
+
+    } catch (Exception e) {
+      System.out.println("Exception: " +  e);
+    }
+
+    this.showData();
+    this.cleanInputs();
+  }//GEN-LAST:event_addBtnMouseClicked
+
+   /**
    * Method that delete data of table and database
    * @param evt 
    */
-  private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
-    // TODO add your handling code here:
-     Connect objConnect = new Connect();
-        employeesBL objEmployees = catchGuiData();
-        
-        String strSqlInsert = String.format("DELETE FROM Employees WHERE Id = %d", objEmployees.getID());
+  private void delBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delBtnMouseClicked
+    Connect objConnect = new Connect();
+    employeesBL objEmployees = catchGuiData();
 
-        
-        objConnect.sqlInsertion(strSqlInsert);
-        this.showData();
-        this.cleanInputs();
-  }//GEN-LAST:event_delBtnActionPerformed
+    String strSqlInsert = String.format("DELETE FROM Employees WHERE Id = %d", objEmployees.getID());
 
-  /**
+    objConnect.sqlInsertion(strSqlInsert);
+    this.showData();
+    this.cleanInputs();                    
+    
+  }//GEN-LAST:event_delBtnMouseClicked
+
+   /**
    * Method edit information
    * @param evt 
    */
-  private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-    // TODO add your handling code here:
+  private void editBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBtnMouseClicked
     Connect objConnect = new Connect();
     employeesBL objEmployees = catchGuiData();
-        
-        String strSqlInsert = String.format("UPDATE Employees SET name = '%s', mail = '%s' WHERE Id = %d ", objEmployees.getName(), objEmployees.getMail(), objEmployees.getID());
 
-        
-        objConnect.sqlInsertion(strSqlInsert);
-        this.showData();
-        this.cleanInputs();
-  }//GEN-LAST:event_editBtnActionPerformed
+    String strSqlInsert = String.format("UPDATE Employees SET name = '%s', mail = '%s' WHERE Id = %d ", objEmployees.getName(), objEmployees.getMail(), objEmployees.getID());
 
-  /**
-   * Method cancel add or edit user
-   * @param evt 
-   */
-  private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-    // TODO add your handling code here:
+    objConnect.sqlInsertion(strSqlInsert);
+    this.showData();
+    this.cleanInputs();  
+    
+  }//GEN-LAST:event_editBtnMouseClicked
+
+  private void cancelBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelBtnMouseClicked
     this.cleanInputs();
-  }//GEN-LAST:event_cancelBtnActionPerformed
-
+  }//GEN-LAST:event_cancelBtnMouseClicked
+              
     /**
      * Method that show data to database on table
      */
@@ -423,17 +486,21 @@ public class frmEmployees extends javax.swing.JFrame {
     }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton addBtn;
-  private javax.swing.JButton cancelBtn;
-  private javax.swing.JButton delBtn;
-  private javax.swing.JButton editBtn;
+  private javax.swing.JPanel HeaderPanel;
+  private javax.swing.JLabel addBtn;
+  private javax.swing.JLabel cancelBtn;
+  private javax.swing.JLabel closeButton;
+  private javax.swing.JLabel delBtn;
+  private javax.swing.JLabel editBtn;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
-  private javax.swing.JMenu jMenu1;
-  private javax.swing.JMenuBar jMenuBar1;
-  private javax.swing.JMenuItem jMenuItem1;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JPanel jPanel3;
+  private javax.swing.JPanel jPanel4;
+  private javax.swing.JPanel jPanel5;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable tblEmployees;
   private javax.swing.JTextField txtID;

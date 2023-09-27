@@ -37,6 +37,4 @@ public class employeesBL {
         this.mail = mail;
     }
     
-    
-    
 }
